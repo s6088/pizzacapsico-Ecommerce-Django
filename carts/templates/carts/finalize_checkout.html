@@ -1,0 +1,40 @@
+<div class="row mt-5 mb-5">
+
+        <div class="col-sm-7 mr-auto ml-auto" data-animation="fadeInUp">
+    
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+                    <h2 class="mb-4">Finalize Checkout</h2>
+                    <h6 class="mb-4">email : {{ billing_profile.email }} <a href="/change">change</a></h6>
+                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+                </div>
+            </div>
+    
+            
+            <h1></h1>
+            <p>Cart Items:
+                {% for entry in entries %}
+                    {% if  entry.quantity > 0 %}
+                          <br>
+                    {{entry.quantity}} &nbsp {{ entry.product }}
+                       
+                    {% endif %}
+                {% endfor %}
+            </p>
+            <p>Shipping Address: {{ object.shipping_address_final }}</p>
+            <p>Payment Method: {{ billing_profile.default_card }} (<a
+                    href="{{ billing_profile.get_payment_method_url }}?next={{ request.build_absolute_uri }}">Change</a>)</p>
+            <p>Cart Total: {{ object.cart.total }}</p>
+            <p>Shipping Total: {{ object.shipping_total }}</p>
+            <p>Order Total: {{ object.total }}</p>
+        
+            <form class='form' method='POST' action="">{% csrf_token %}
+                <button type='submit' class='btn btn-primary'>Checkout</button>
+            </form>
+        
+
+
+    
+        </div>
+    
+    </div>

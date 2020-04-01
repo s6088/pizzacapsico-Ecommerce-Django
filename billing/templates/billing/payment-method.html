@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+
+
+
+<div class='stripe-payment-form' data-token='{{ publish_key }}'
+    data-next-url='{% if next_url %}{{ next_url }}{% endif %}' data-btn-title='Change Card'>
+
+</div>
+
+{% endblock %}

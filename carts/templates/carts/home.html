@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+
+
+<section class="ftco-section">
+
+
+  <div class="container">
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+        <h2 class="mb-4">Your Cart</h2>
+        <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+      </div>
+    </div>
+
+    {% if entries|length > 0 %}
+    <table class="table cart-table">
+      <thead>
+        
+        <tr>
+          <th scope="col" >Product Name</th>
+          <th scope="col" >Product Details</th>
+          <th scope="col" >Product Price</th>
+          <th scope="col" ></th>
+        </tr>
+      </thead>
+      <tbody class='cart-body'>
+        {% for entry in entries %}
+        <tr class='cart-product'>
+          <td><a href='{{ entry.product.get_absolute_url }}'>{{ entry.product.title }}</a></td>
+          <td><span id='{{ entry.product.slug }}'>{{entry.quantity}} * {{ entry.product.price }} € </span></td>
+          <td><span id='{{ entry.product.slug }}r'>{{ entry.cost }}</span></td>
+          <td>{% include 'products/snippets/handler.html' with product=entry.product %}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="2"></td>
+          <td><b>Subtotal : </b> <span class='cart-subtotal'>{{ cart.subtotal }} € </span></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td><b>Total : </b><span class='cart-total'>{{ cart.total }} € </span></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td><a class='btn btn-lg btn-primary ' href='{% url "cart:checkout" %}'>Checkout</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+    {% else %}
+    <p class='lead'>Cart is empty</p>
+    {% endif %}
+
+  </div>
+
+</section>
+
+{% endblock %}

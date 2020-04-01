@@ -1,0 +1,7 @@
+<form class='form-product-ajax' method='POST' action='{% url "cart:update" %}' data-endpoint='{% url "cart:update" %}'
+        class="form"> {% csrf_token %}
+        <input type='hidden' style="display: none;" name='product_id' value='{{ product.id }}' />
+        <input type='hidden' style="display: none;" name='type' value='dec' />
+        <button class="btn  btn-primary btn-outline-primary {% if count <= 0 %} disabled {% endif %}" type='submit'
+                id='{{ product.slug }}d'><i class="fa fa-minus"></i></button>
+</form>

@@ -1,0 +1,64 @@
+{% load static %}
+{% url 'home' as home_url %}
+{% url 'products:list' as product_list_url %}
+{% url 'cart:home' as cart_url %}
+{% url 'contact' as contact_url %}
+{% url 'menu' as menu_url %}
+{% url 'about' as about_url %}
+
+
+
+<footer class="ftco-footer ftco-section img">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row mb-5">
+      
+      <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Location</h2>
+          
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2520.0672537607697!2d4.383564515243326!3d50.829918179529535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3c4bebee31df3%3A0xfe09c9f48e9fa50a!2sPlace+Saint-Antoine+45%2C+1040+Etterbeek%2C+Belgium!5e0!3m2!1sen!2sbd!4v1558496551317!5m2!1sen!2sbd" width="300" height="300" frameborder="0" style="border:0"></iframe>
+
+        </div>
+      </div>
+     
+      <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
+        <div class="ftco-footer-widget mb-4 ml-md-4">
+          <h2 class="ftco-heading-2">Services</h2>
+          <ul class="list-unstyled">
+            <li><a href="{{product_list_url}}" class="py-2 d-block">Online Order</a></li>
+            <li><a href="{{contact_url}}" class="py-2 d-block">Reservation</a></li>
+            <li><a href="{{menu_url}}" class="py-2 d-block">Menu</a></li>
+            <li><a href="{{about_url}}" class="py-2 d-block">Abouts Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-5 mb-md-5">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Contact Us</h2>
+          <div class="block-23 mb-3">
+            <ul>
+              <li><span class="fa fa-map-marker m-2"></span><span class="text">PLACE SAINT ANTOINE
+                  45, ETTERBEEK 1040 BRUSSELS BELGIUM</span></li>
+              <li><a href="#"><span class="fa fa-phone m-2"></span><span class="text">
+                    +003 223 192337</span></a></li>
+              <li><a href="#"><span class="fa fa-envelope m-2"></span><span class="text">tamimbg11@yahoo.com
+
+                  </span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+
+        <p>
+          Copyright &copy;
+          <script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="{{home_url}}"
+            target="_blank">Capsico</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

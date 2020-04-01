@@ -1,0 +1,28 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+
+        <div class="col-sm-5 mr-auto ml-auto" data-animation="fadeInUp">
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+                    <h2 class="mb-4">Reservation</h2>
+                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+                    <p class="mt-5">Book Your Table</p>
+                </div>
+            </div>
+
+            <form class='contactform' method='POST' action='{% url "contact" %}'> {% csrf_token %}
+                
+                {{ form }}
+
+                <button type="submit" class="btn btn-primary mt-4" >Confirm Your Booking</button>
+
+
+            </form>
+
+
+
+        </div>
+
+    </div>
+</div>

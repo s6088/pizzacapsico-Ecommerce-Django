@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+{% load capsico_tags %}
+{% block content %}
+
+
+
+
+<section class="ftco-section">
+
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 heading-section ftco-animate text-center">
+          <h2 class="mb-4">Our Item Related to Your Search <b>{{ query }}</b></h2>
+          <p class="flip mb-5"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+       
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="container-wrap">
+      <div class="row no-gutters d-flex">
+        {% for product in object_list %}
+        {% include "products/snippets/ocard.html" with instance=product count=quantity|hash:product.id %}
+        {% endfor %}
+      </div>
+    </div>
+  
+  </section>
+  
+
+
+
+
+
+
+
+{% endblock %}

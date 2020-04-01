@@ -1,0 +1,57 @@
+{% verbatim %}
+<!-- stripe template form -->
+<script id="stripeTemplate" type="text/x-jsrender">
+
+
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+
+        <div class="col-sm-8 mr-auto ml-auto">
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-7 heading-section text-center">
+                    <h2 class="mb-4">Add Your Credit Card </h2>
+                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+                    <p class="mt-5">We Dont Store Your Card Information</p>
+                    
+                </div>
+              
+            </div>
+
+            <div class="cc" style="margin-left:-5px">
+                    <div class="mc"></div>
+                    <div class="vc"></div>
+                    <div class="ac"></div>
+                </div>
+
+            <form class='payment-form' action="" method="post" id="payment-form" data-token='{{:publishKey}}' data-next-url='{{:nextUrl}}'>
+                  
+                <div class="form-row">
+                
+                 <label for="card-element">
+                    Credit or debit card
+                  </label> 
+                  <div id="card-element" class='form-control'> 
+                    <!-- a Stripe Element will be inserted here. -->
+                  </div>
+              
+                  <!-- Used to display form errors -->
+                  <div id="card-errors" role="alert"></div>
+                </div>
+              
+                <button class='btn btn-primary my-4 btn-load' style="margin-left:-5px">{{:btnTitle }}</button>
+              
+                </form>
+
+        </div>
+
+    </div>
+</div>
+
+  
+
+
+
+</script>
+{% endverbatim %}

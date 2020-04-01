@@ -1,0 +1,52 @@
+{% extends "base/base.html" %}
+{% load capsico_tags %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<section class="ftco-section">
+
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-3">
+			<div class="col-md-7 heading-section ftco-animate text-center">
+				<h2 class="mb-4">Get Your Food in Less Than an Hour</h2>
+				<p>Just confirm your order and enjoy our fastest delivery. Fresh and delicious food will be delivered to
+					your doorstep.</p>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container-wrap">
+		<div class="row no-gutters d-flex">
+
+			{% for i in products %}
+			{% if i.0 %}
+			<div class="container">
+				<div class="row justify-content-center mb-2 mt-5 pb-3">
+					<div class="col-md-7 heading-section ftco-animate text-center">
+						<h2 class="mb-4">{{ i.0.category }}</h2>
+						<p class="flip mb-5"><span class="deg1"></span><span class="deg2"></span><span
+								class="deg3"></span></p>
+
+
+					</div>
+				</div>
+			</div>
+			{% endif %}
+			{% for product in i %}
+			{% include "products/snippets/ocard.html" with product=product entry=entries|hash:product.id %}
+			{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+
+</section>
+
+
+
+
+{% endblock %}

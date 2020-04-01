@@ -1,0 +1,16 @@
+
+
+
+
+<form method='POST' action='{% if action_url %}{{ action_url }}{% endif %}'> {% csrf_token %}
+  {% if next_url %}
+  <input type='hidden' name='next' value='{{ next_url }}' />
+  {% endif %}
+  
+  {{ form.as_p }}
+  <p id="shipping_status">You are  0 km away from us, Shipping Charge 0 €</p>
+  <div id="map"  class="mb-2" style="height:200px;"></div>
+  <button type='submit' class='btn btn-primary'>Next</button>
+</form>
+
+

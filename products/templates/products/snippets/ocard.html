@@ -1,0 +1,19 @@
+{% load capsico_tags %}
+{% url 'home' as home_url %}
+<div class="d-flex {% if request.path == home_url %} col-md-6 {% else %} col-md-4 {% endif %} ftco-animate">
+    <div class="services-wrap d-flex">
+            <a  class="img order-lg-last" style="background-image: url('{{ product.image.url }}');"></a>
+        <div class="text p-4">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description|linebreaks|slice:":60" }}</p>
+            <p class="price">    
+                <span id='{{ product.slug }}'>{% if entry %} {{entry.quantity}} x {% endif %} {{product.price}}  €</span>
+            
+                <span id='{{ product.slug }}r'>  {% if entry %} = {{entry.cost}} €{% endif %}</span>
+            </p>
+            {% include 'products/snippets/handler.html' with product=product %}
+        </div>
+
+       
+    </div>
+</div>

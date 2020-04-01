@@ -1,0 +1,192 @@
+{% extends "base/base.html" %}
+{% load capsico_tags %}
+{% load static %}
+{% url 'products:list' as product_list_url %}
+{% url 'contact' as contact_url %}
+
+{% block content %}
+
+
+<section>
+    <video class="overlay" autoplay="autoplay" muted="muted" loop="loop" src="{% static 'vedio/capsico.mp4' %}"
+        style="width: 100%;"></video>
+    <div class="container fullscreen">
+        <div class="row  justify-content-center align-items-center" data-scrollax-parent="true">
+
+            <div class="col-md-7 col-sm-12 text-center">
+                <h1 class="mb-4 theme">Best Place For Delicious Pizza, Pasta and Burger</h1>
+                <p class="mb-4 mt-5 mb-md-5">It's the food you love, we delivered</p>
+                <div class="container">
+                    {% include "base/search-form.html"%}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section class="ftco-menu">
+    <div class="container-fluid">
+
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center">
+                <h2 class="mb-4">Shop Now</h2>
+                <p class="flip mb-4"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+                <p>100% Halal Food</p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="nav-link-wrap ftco-animate col-4">
+
+                <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div class="row">
+                        {% for i in category %}
+
+                        <a class="nav-link col-12 mb-2 {% if forloop.counter == 1 %} active {% endif %}"
+                            id="v-pills-{{ forloop.counter }}-tab" data-toggle="pill"
+                            href="#v-pills-{{ forloop.counter }}" role="tab"
+                            aria-controls="v-pills-{{ forloop.counter }}"
+                            aria-selected="{% if forloop.counter == 1 %} true {% else %} false {% endif %}">{{ i.title }}</a>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-8">
+
+                <div class="tab-content ftco-animate" id="v-pills-tabContent">
+
+                    {% for i in products %}
+
+                    <div class="tab-pane fade{% if forloop.counter == 1 %} show active {% endif %}"
+                        id="v-pills-{{ forloop.counter }}" role="tabpanel"
+                        aria-labelledby="v-pills-{{forloop.counter}}-tab">
+
+                        <div class="row">
+                            {% for j in i %}
+                            {% include "products/snippets/ocard.html" with product=j entry=entries|hash:j.id %}
+                            {% endfor %}
+                        </div>
+
+
+
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-intro">
+    <div class="container-wrap">
+        <div class="wrap d-md-flex">
+            <div class="info">
+                <div class="row no-gutters">
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="fa fa-phone"></span></div>
+                        <div class="text">
+                            <h3>+003 223 192337</h3>
+                            <p>tamimbg11@yahoo.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="fa fa-map-marker"></span></div>
+                        <div class="text">
+                            <h3>PLACE SAINT ANTOINE</h3>
+                            <p> 45, ETTERBEEK 1040 BRUSSELS BELGIUM</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <div class="icon"><span class="fa fa-clock-o"></span></div>
+                        <div class="text">
+                            <h3>Open Saturday-Thursday</h3>
+                            <p>11:00am - 2:00am</p>
+                            <p>Friday 3:00pm - 2:00am</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social d-md-flex pl-md-5 p-4 align-items-center">
+                <ul class="social-icon">
+                    <li class="ftco-animate"><a href="https://www.facebook.com/Capsico-1189126967910380/"><span class="fa fa-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="https://www.facebook.com/Capsico-1189126967910380/"><span class="fa fa-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="https://www.facebook.com/Capsico-1189126967910380/"><span class="fa fa-instagram"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section class="ftco-gallery">
+    <div class="container-wrap">
+        <div class="row no-gutters">
+            <div class="col-md-3 ftco-animate">
+                <a  class="gallery img d-flex align-items-center"
+                    style="background-image: url(/static/images/gallery-1.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <a  class="gallery img d-flex align-items-center"
+                    style="background-image: url(/static/images/gallery-2.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <a  class="gallery img d-flex align-items-center"
+                    style="background-image: url(/static/images/gallery-3.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-search"></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 ftco-animate">
+                <a  class="gallery img d-flex align-items-center"
+                    style="background-image: url(/static/images/gallery-4.jpg);">
+                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                        <span class="icon-search"></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

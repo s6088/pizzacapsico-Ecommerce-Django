@@ -1,0 +1,58 @@
+{% extends "base/base.html" %}
+{% load capsico_tags %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+
+<div class="container">
+
+
+	{% for i in products %}
+
+	{% if i.0 %}
+	<div class="row justify-content-center mt-3 mb-3">
+		<div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+			<h2 class="mb-4">{{i.0.category.title}}</h2>
+			<p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+		</div>
+	</div>
+
+	{% endif %}
+
+	<div class="row mt-5">
+
+		{% for j in i %}
+
+
+		<div class="col-md-6">
+			<div class="pricing-entry d-flex ftco-animate fadeInUp ftco-animated">
+				<div class="img" style="background-image: url('{{ j.image.url }}');"></div>
+				<div class="desc pl-3">
+					<div class="d-flex text align-items-center">
+						<h3>{{ j.title }}</h3>
+						<span class="price"> € {{j.price}}</span>
+					</div>
+					<div class="d-block">
+						<p>{{ j.description|linebreaks|slice:":60" }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+
+	</div>
+
+	{% endfor %}
+
+
+
+</div>
+
+
+
+
+{% endblock %}

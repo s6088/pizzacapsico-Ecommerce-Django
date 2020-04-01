@@ -1,0 +1,35 @@
+<h4>Purchase Details</h4>
+
+<table style="width:100%">
+    <tr>
+        <td>Product Name</td>
+        <td>Quantity</td>
+        <td>Unit Price</td>
+        <td>Total Price</td>
+    </tr>
+
+    {% for entry in entries %}
+    <tr>
+        <td>{{ entry.product.title }}</td>
+        <td>{{ entry.quantity }}</td>
+        <td>{{ entry.product.price }} €</td>
+        <td>{{ entry.cost }} €</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<section>
+<p>Cart Subtotal : {{ order.cart.subtotal }}</p>
+<p>Cart Total (with service charge) : {{ order.cart.total }}</p>
+<p>Total (with shipping charge) : {{ order.total }}</p>
+</section>
+
+
+<section>
+    <h5>Address</h5>
+    <p>shipping to : {{ address.name }}</p>
+    <p>Phone : {{ address.phone }}</p>
+    <p>Address : {{ address.address_line_1}}, {{ address.address_line_2}}</p>
+    <a href="{{ order.location }}">see in google map</a>
+</section>

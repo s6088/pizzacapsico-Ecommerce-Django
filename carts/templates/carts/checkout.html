@@ -1,0 +1,44 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+
+    {% if not billing_profile %}
+
+    {% include 'carts/continue_as_guest.html' with form=guest_form %}
+
+    {% else %}
+
+        {% if not object.shipping_address %}
+
+
+        {% include 'carts/shipping_address.html' with form=address_form billing_profile=billing_profile %}'
+
+
+
+        {% else %}
+        
+            {% if not has_card %}
+
+       
+            <!-- enter credit card here -->
+            <div class='stripe-payment-form' data-token='{{ publish_key }}' data-next-url='{{ request.build_absolute_uri }}'
+                data-btn-title='Add Payment Method'></div>
+
+            {% else %}
+
+
+            {% include "carts/finalize_checkout.html" with object=object entries=entries billing_profile=billing_profile %}
+
+
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+
+</div>
+{% endblock %}
+
+

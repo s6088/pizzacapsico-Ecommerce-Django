@@ -1,0 +1,54 @@
+{% load static %}
+{% url 'home' as home_url %}
+{% url 'cart:home' as cart_url %}
+{% url 'cart:checkout' as address_url %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Capsico</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" type="image/png" href="/static/images/fav.png"/>
+  {% include "base/css.html" %}
+  
+</head>
+
+<body>
+
+  {% include "base/navbar.html" %}
+
+  {% if  request.path == home_url %}
+  {% else %}
+  {% endif %}
+
+
+  {% block content %}
+
+  {% endblock %}
+
+  </div>
+
+
+
+  {% include "base/footer.html" %}
+
+  <a href="{{ cart_url }}" class="btn btn-primary circle-div "><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+  <h6 class="navbar-cart-count">{{ request.session.cart_items }}</h6>
+  </a>
+
+
+
+  {% include "base/js.html" %}
+
+  {% if request.path == address_url %}
+
+  <script src='{% static "js/map.js" %}'>
+  </script>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZNkwkOjuXpcfT8hrVPofXXxsQtEjNQ6E&libraries=places&callback=initMap"></script>
+  {% endif %}
+</body>
+
+
+</html>

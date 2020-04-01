@@ -1,0 +1,18 @@
+<div class="row mt-5 mb-5">
+
+    <div class="col-sm-7 mr-auto ml-auto" data-animation="fadeInUp">
+
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+                <h2 class="mb-4">Continue As Guest</h2>
+                <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            </div>
+        </div>
+
+        {% url "guest_register" as guest_register_url %}
+        {% include 'accounts/snippets/form.html' with form=form next_url=request.build_absolute_uri action_url=guest_register_url %}
+
+
+    </div>
+
+</div>

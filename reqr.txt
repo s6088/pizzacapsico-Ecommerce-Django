@@ -1,0 +1,7 @@
+Django==2.2.4
+django-storages[google]
+django-phonenumber-field
+phonenumbers
+pillow
+https://github.com/darklow/django-suit/tarball/v2
+stripe==2.33.2
